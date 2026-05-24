@@ -1,0 +1,53 @@
+.splash-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+  padding: 48px 0 24px;
+}
+
+.splash-hero {
+  padding-top: 28px;
+}
+
+.splash-hero__text {
+  margin: 0;
+  margin-left: 20px;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  line-height: 1.05;
+  white-space: pre-wrap;
+  letter-spacing: -0.09em;
+}
+
+.splash-hero__brand {
+  display: inline-block;
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  font-weight: 700;
+}
+
+.splash-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.splash-logo img {
+  width: min(120px, 45vw);
+  height: auto;
+  display: block;
+}
+
+.splash-action {
+  display: flex;
+  justify-content: center;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.splash-action__link {
+  color: #6b7280;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  text-decoration: underline;
+}

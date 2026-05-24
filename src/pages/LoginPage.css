@@ -1,0 +1,133 @@
+.login-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+  padding: 24px 0 20px;
+}
+
+.login-header {
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
+  align-items: center;
+  gap: 8px;
+}
+
+.login-back {
+  color: #111827;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.login-title {
+  text-align: center;
+  font-weight: 700;
+}
+
+.login-filler {
+  width: 100%;
+}
+
+.login-form {
+  display: grid;
+  gap: 12px;
+}
+
+.login-field input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  background: #f9fafb;
+  color: #111827;
+  outline: none;
+}
+
+.login-field input::placeholder {
+  color: #9ca3af;
+}
+
+.login-help {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.login-help__link {
+  color: #6b7280;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.login-button {
+  width: 100%;
+  border: none;
+  border-radius: 14px;
+  padding: 14px 16px;
+  background: #d1d5db;
+  color: #111827;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.login-social {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.login-social__divider {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #6b7280;
+  font-size: 0.85rem;
+}
+
+.login-social__divider::before,
+.login-social__divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #d1d5db;
+}
+
+.login-social__icons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.login-social__icons span {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  display: inline-block;
+}
+
+.login-footer {
+  display: grid;
+  gap: 12px;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.login-footer__button {
+  width: 100%;
+  border: none;
+  border-radius: 14px;
+  padding: 14px 16px;
+  background: #d1d5db;
+  color: #111827;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.login-footer__link {
+  color: #6b7280;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  font-size: 0.9rem;
+}
