@@ -1,0 +1,249 @@
+.reservation-page--step2 {
+  display: flex;
+  min-height: calc(100vh - 36px);
+  flex-direction: column;
+  overflow-x: hidden;
+  color: #2c2c2a;
+  padding: 0 18px;
+  background: #f5f5f5;
+}
+
+.reservation-page--step2 .reservation-page__step {
+  flex-shrink: 0;
+  margin: -12px 0 14px;
+  color: #888780;
+  font-size: 12px;
+  text-align: center;
+}
+
+.reservation-page--step2 .reservation-page__header {
+  flex-shrink: 0;
+  margin-bottom: 20px;
+}
+
+.reservation-page--step2 .reservation-page__title {
+  margin: 0;
+  color: #1a1a1a;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+
+.reservation-page--step2 .calendar {
+  flex-shrink: 0;
+  margin-bottom: 20px;
+}
+
+.calendar__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.calendar__nav-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: #e5e5e5;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #1a1a1a;
+}
+
+.calendar__title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+  min-width: 140px;
+  text-align: center;
+}
+
+.calendar__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.calendar__day {
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 8px;
+  background: #e5e5e5;
+  color: #6b7280;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.calendar__day--empty {
+  background: transparent;
+  cursor: default;
+}
+
+.calendar__day--selected {
+  background: #646464;
+  color: #f5f5f5;
+  font-weight: 600;
+}
+
+.time-slots {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  overflow: visible;
+  padding: 1px 0 20px;
+  margin: 0 -18px;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.time-slots__track {
+  display: flex;
+  gap: 3px;
+  overflow-x: auto;
+  padding: 0;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+.time-slots__track::-webkit-scrollbar {
+  height: 4px;
+}
+
+.time-slots__track::-webkit-scrollbar-track {
+  background: #e5e5e5;
+  border-radius: 2px;
+}
+
+.time-slots__track::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+  border-radius: 2px;
+}
+
+.time-slot {
+  flex-shrink: 0;
+  width: 28px;
+  aspect-ratio: 0.4;
+  border: 1.5px solid #d1d5db;
+  border-radius: 17px;
+  background: #f5f5f5;
+  color: #6b7280;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  scroll-snap-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.time-slot--active {
+  background: #646464;
+  color: #f5f5f5;
+  font-weight: 600;
+}
+
+.guests {
+  flex-shrink: 0;
+  background: #f5f5f5;
+  border-radius: 14px;
+  margin: 0 0 20px;
+}
+
+.guest-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  background: #e5e5e5;
+  padding: 8px 12px;
+  border-radius: 18px;
+}
+
+.guest-row:last-of-type {
+  margin-bottom: 12px;
+}
+
+.guest-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.guest-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.guest-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 6px;
+  background: #d1d5db;
+  color: #1a1a1a;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.guest-btn:active {
+  background: #9ca3af;
+}
+
+.guest-count {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  min-width: 24px;
+  text-align: center;
+}
+
+.guest-note {
+  margin: 0;
+  font-size: 11px;
+  color: #6b7280;
+  text-align: left;
+}
+
+.reservation-page__footer {
+  flex-shrink: 0;
+  padding: 8px 18px 24px;
+}
+
+.reservation-page__next {
+  width: 100%;
+  padding: 14px 0;
+  border: none;
+  border-radius: 14px;
+  background: #c9c9c9;
+  color: #1a1a1a;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.reservation-page__next:hover {
+  background: #b5b5b5;
+}
+
+@media (max-width: 380px) {
+  .reservation-page--step2 {
+    padding: 0 14px;
+  }
+
+  .time-slot {
+    width: 48px;
+  }
+}

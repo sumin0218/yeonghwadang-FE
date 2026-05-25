@@ -2,41 +2,29 @@ import { useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { PageHeader } from "@/components/PageHeader";
+import {
+  reservationStories,
+  type ReservationStory,
+} from "@/data/reservation";
 import "./ReservationSelectPage.css";
 
 const CARD_WIDTH = 180;
 const CARD_GAP = 12;
 
-const stories = [
-  {
-    slug: "heungbu",
-    title: "흥부와 놀부",
-    description: "가난하지만 화목한 흥부네 가족이 제비의 은혜를 갚은 뒤, 큰 복을 받는 이야기",
-  },
-  {
-    slug: "kongjwi",
-    title: "콩쥐 팥쥐",
-    description: "착한 콩쥐가 어려움을 이겨내고 행복을 찾아가는 이야기",
-  },
-  {
-    slug: "simcheong",
-    title: "심청전",
-    description: "아버지의 눈을 뜨게 하려 인당수에 몸을 던진 효녀 이야기",
-  },
-  {
-    slug: "chunhyang",
-    title: "춘향전",
-    description: "춘향과 몽룡의 사랑과 약속을 그린 고전 로맨스 이야기",
-  },
-  {
-    slug: "rabbit",
-    title: "토끼와 거북이",
-    description: "영리한 토끼와 성실한 거북이가 경주를 벌이는 이야기",
-  },
-];
+type ReservationSelectPageProps = {
+  selectedStory: ReservationStory;
+  onSelectStory: (story: ReservationStory) => void;
+};
 
-export function ReservationSelectPage() {
-  const [activeIndex, setActiveIndex] = useState(0);
+export function ReservationSelectPage({
+  selectedStory,
+  onSelectStory,
+}: ReservationSelectPageProps) {
+  const initialIndex = Math.max(
+    0,
+    reservationStories.findIndex((story) => story.slug === selectedStory.slug),
+  );
+  const [activeIndex, setActiveIndex] = useState(initialIndex);
   const touchStartX = useRef(0);
   const touchStartTime = useRef(0);
   const didSwipe = useRef(false);
@@ -50,7 +38,9 @@ export function ReservationSelectPage() {
   }, [activeIndex]);
 
   const moveToStory = (nextIndex: number) => {
-    setActiveIndex(Math.max(0, Math.min(stories.length - 1, nextIndex)));
+    const safeIndex = Math.max(0, Math.min(reservationStories.length - 1, nextIndex));
+    setActiveIndex(safeIndex);
+    onSelectStory(reservationStories[safeIndex]);
   };
 
   const handlePointerDown = (event: React.PointerEvent<HTMLElement>) => {
@@ -103,7 +93,7 @@ export function ReservationSelectPage() {
             className="reservation-carousel__track"
             style={{ transform: trackTransform }}
           >
-            {stories.map((story, index) => {
+            {reservationStories.map((story, index) => {
               const isActive = index === activeIndex;
 
               return (
@@ -138,7 +128,7 @@ export function ReservationSelectPage() {
       </section>
 
       <div className="dots" aria-hidden="true">
-        {stories.map((story, index) => (
+        {reservationStories.map((story, index) => (
           <span
             key={story.slug}
             className={`dot ${index === activeIndex ? "dot--active" : ""}`}

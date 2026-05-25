@@ -1,0 +1,131 @@
+.my-fairytales-page {
+  display: flex;
+  min-height: calc(100vh - 36px);
+  flex-direction: column;
+  color: #1a1a1a;
+}
+
+.my-fairytales-topbar {
+  margin-bottom: 32px;
+}
+
+.my-fairytales-topbar__back {
+  font-size: 24px;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+.my-fairytales-intro {
+  margin-bottom: 26px;
+}
+
+.my-fairytales-intro p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.my-fairytales-library {
+  flex: 1;
+  margin-inline: -20px;
+  overflow: hidden;
+  border-radius: 24px 24px 0 0;
+  background: #bfbfbf;
+}
+
+.my-fairytales-filterbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 49px;
+  padding: 11px 24px 10px;
+  border-radius: 24px 24px 0 0;
+  background: #d3d3d3;
+}
+
+.my-fairytales-filterbar__group {
+  display: flex;
+  gap: 7px;
+}
+
+.my-fairytales-filter,
+.my-fairytales-sort {
+  min-height: 20px;
+  border-radius: 999px;
+  background: #eeeeee;
+  color: #777777;
+  cursor: pointer;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.my-fairytales-filter {
+  min-width: 48px;
+  padding: 5px 12px;
+}
+
+.my-fairytales-filter--active {
+  background: #6f6f6f;
+  color: #ffffff;
+}
+
+.my-fairytales-sort {
+  flex-shrink: 0;
+  padding: 5px 0;
+  background: transparent;
+}
+
+.my-fairytales-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 28px;
+  row-gap: 32px;
+  padding: 38px 34px 36px;
+}
+
+.my-fairytales-book {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+}
+
+.my-fairytales-book-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.my-fairytales-book__cover {
+  display: block;
+  width: min(118px, 80%);
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  object-position: center;
+  transform: translateX(6px);
+}
+
+.my-fairytales-book__title {
+  margin: 10px 0 0;
+  color: #111111;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+
+@media (max-width: 380px) {
+  .my-fairytales-grid {
+    column-gap: 20px;
+    padding-inline: 26px;
+  }
+
+  .my-fairytales-book__cover {
+    width: min(108px, 82%);
+  }
+
+  .my-fairytales-filterbar {
+    padding-inline: 20px;
+  }
+}

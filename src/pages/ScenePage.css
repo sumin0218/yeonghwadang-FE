@@ -1,6 +1,6 @@
 .scene-page {
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh - 36px);
   padding: 24px 18px;
   display: flex;
   flex-direction: column;
