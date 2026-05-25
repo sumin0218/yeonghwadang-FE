@@ -1,0 +1,27 @@
+.reservation-step-header__label {
+  flex-shrink: 0;
+  margin: 12px 0 14px;
+  color: #888780;
+  font-size: 12px;
+  text-align: center;
+}
+
+.reservation-step-header__section {
+  flex-shrink: 0;
+  margin-bottom: 20px;
+}
+
+.reservation-step-header__title {
+  margin: 0;
+  color: #1a1a1a;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+
+.reservation-step-header__description {
+  margin: 14px 0 0;
+  color: #2c2c2a;
+  font-size: 12px;
+}

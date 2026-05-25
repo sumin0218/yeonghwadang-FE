@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import { PageHeader } from "@/components/PageHeader";
+import { Header } from "@/components/Header";
+import { ReservationStepHeader } from "@/components/ReservationStepHeader";
 import type { ReservationDraft } from "@/data/reservation";
 import "./ReservationConfirmPage.css";
 
@@ -40,23 +41,9 @@ export function ReservationConfirmPage({
       className="reservation-confirm-page"
       aria-labelledby="reservation-confirm-title"
     >
-      <PageHeader backTo="/reservation/date-time" backLabel="< 예약" />
+      <Header left={<Link to="/reservation/date-time" className="header__back">&lt; 예약</Link>} />
 
-      <p className="reservation-confirm-page__step">예약 진행 3 / 3</p>
-
-      <section className="reservation-confirm-page__header">
-        <h1
-          className="reservation-confirm-page__title"
-          id="reservation-confirm-title"
-        >
-          예약 정보를
-          <br />
-          확인해주세요.
-        </h1>
-        <p className="reservation-confirm-page__description">
-          입력하신 예약 정보를 확인해주세요.
-        </p>
-      </section>
+      <ReservationStepHeader stepIndex={2} titleId="reservation-confirm-title" />
 
       <section className="reservation-confirm-page__section">
         <h2 className="reservation-confirm-page__section-title">선택한 동화</h2>

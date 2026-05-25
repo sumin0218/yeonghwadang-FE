@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import { TopBar } from "@/components/TopBar";
+import { Header } from "@/components/Header";
 import "./MyFairyTalesPage.css";
 
 const myBooks = [
@@ -26,28 +26,28 @@ export function MyFairyTalesPage() {
 
   return (
     <main className="my-fairytales-page" aria-labelledby="my-fairytales-title">
-      <TopBar
-        className="my-fairytales-topbar"
+      <Header
+        className="my-fairytales-header"
         left={
           <button
             type="button"
-            className="topbar-button"
+            className="header-button"
             onClick={() => navigate("/home")}
             aria-label="뒤로가기"
           >
-            <span className="my-fairytales-topbar__back" aria-hidden="true">
+            <span className="my-fairytales-header__back" aria-hidden="true">
               &lt;
             </span>
           </button>
         }
         center={
-          <h1 id="my-fairytales-title" className="topbar-title">
+          <h1 id="my-fairytales-title" className="header-title">
             나의 동화
           </h1>
         }
         right={
-          <button type="button" className="topbar-button" aria-label="메뉴 열기">
-            <span className="topbar-button__icon">☰</span>
+          <button type="button" className="header-button" aria-label="메뉴 열기">
+            <span className="header-button__icon">☰</span>
           </button>
         }
       />

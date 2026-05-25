@@ -47,6 +47,18 @@ export const reservationStories: ReservationStory[] = [
 
 export const defaultReservationStory = reservationStories[0];
 
+type ReservationStep = {
+  step: number;
+  title: [string, string];
+  description?: string;
+};
+
+export const RESERVATION_STEPS: ReservationStep[] = [
+  { step: 1, title: ["촬영할 동화를", "선택해주세요."] },
+  { step: 2, title: ["날짜와 시간,", "인원을 선택해주세요."] },
+  { step: 3, title: ["예약 정보를", "확인해주세요."], description: "입력하신 예약 정보를 확인해주세요." },
+];
+
 export const defaultReservationDetails: ReservationDetails = {
   date: new Date(2026, 4, 28),
   selectedTimeIndices: [5, 6, 7],

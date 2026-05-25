@@ -1,11 +1,9 @@
 import { useMemo, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import { PageHeader } from "@/components/PageHeader";
-import {
-  reservationStories,
-  type ReservationStory,
-} from "@/data/reservation";
+import { Header } from "@/components/Header";
+import { ReservationStepHeader } from "@/components/ReservationStepHeader";
+import { reservationStories, type ReservationStory } from "@/data/reservation";
 import "./ReservationSelectPage.css";
 
 const CARD_WIDTH = 180;
@@ -70,17 +68,9 @@ export function ReservationSelectPage({
 
   return (
     <main className="reservation-page" aria-labelledby="reservation-title">
-      <PageHeader backTo="/home" backLabel="< 예약" />
+      <Header left={<Link to="/home" className="header__back">&lt; 예약</Link>} />
 
-      <p className="reservation-page__step">예약 진행 1 / 3</p>
-
-      <section className="reservation-page__header">
-        <h1 className="reservation-page__title" id="reservation-title">
-          촬영할 동화를
-          <br />
-          선택해주세요.
-        </h1>
-      </section>
+      <ReservationStepHeader stepIndex={0} titleId="reservation-title" />
 
       <section
         className="reservation-carousel"

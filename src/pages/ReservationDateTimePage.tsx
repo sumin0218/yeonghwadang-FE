@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import { PageHeader } from "@/components/PageHeader";
+import { Header } from "@/components/Header";
+import { ReservationStepHeader } from "@/components/ReservationStepHeader";
 import type { ReservationDetails } from "@/data/reservation";
 import "./ReservationDateTimePage.css";
 
@@ -134,17 +135,9 @@ export function ReservationDateTimePage({
       className="reservation-page reservation-page--step2"
       aria-labelledby="reservation-title"
     >
-      <PageHeader backTo="/reservation/select" backLabel="< 예약" />
+      <Header left={<Link to="/reservation/select" className="header__back">&lt; 예약</Link>} />
 
-      <p className="reservation-page__step">예약 진행 2 / 3</p>
-
-      <section className="reservation-page__header">
-        <h1 className="reservation-page__title" id="reservation-title">
-          날짜와 시간,
-          <br />
-          인원을 선택해주세요.
-        </h1>
-      </section>
+      <ReservationStepHeader stepIndex={1} titleId="reservation-title" />
 
       <section className="calendar">
         <div className="calendar__header">

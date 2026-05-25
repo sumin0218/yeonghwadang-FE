@@ -1,85 +1,72 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { PageFlip } from "page-flip";
 
-import { PageHeader } from "@/components/PageHeader";
+import { Link } from "react-router-dom";
+
+import { Header } from "@/components/Header";
 import "./FairyTaleArchivePage.css";
 
-const pages = Array.from({ length: 5 }, (_, index) => ({
-  id: index + 1,
-  image: "/images/first-logo.png",
-}));
-
-pages[2] = {
-  id: 3,
-  image: "/images/transparent.png",
-};
-
-type TurnDirection = "next" | "prev" | null;
+const pageImages = [
+  "/images/first-logo.png",
+  "/images/first-logo.png",
+  "/images/transparent.png",
+  "/images/first-logo.png",
+  "/images/first-logo.png",
+];
 
 export function FairyTaleArchivePage() {
   const [currentPage, setCurrentPage] = useState(0);
-  const [turnDirection, setTurnDirection] = useState<TurnDirection>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const isFirstPage = currentPage === 0;
-  const isLastPage = currentPage === pages.length - 1;
+  const isLastPage = currentPage === pageImages.length - 1;
 
-  const turnPage = (direction: Exclude<TurnDirection, null>) => {
-    if (turnDirection) {
-      return;
-    }
+  useEffect(() => {
+    const wrapper = containerRef.current;
+    if (!wrapper) return;
 
-    if (direction === "prev" && isFirstPage) {
-      return;
-    }
+    const inner = document.createElement("div");
+    wrapper.appendChild(inner);
 
-    if (direction === "next" && isLastPage) {
-      return;
-    }
+    const width = Math.min(window.innerWidth, 430);
+    const height = Math.min(window.innerHeight * 0.65, 520);
 
-    setTurnDirection(direction);
-    window.setTimeout(() => {
-      setCurrentPage((page) => page + (direction === "next" ? 1 : -1));
-      setTurnDirection(null);
-    }, 360);
-  };
+    const pf = new PageFlip(inner, {
+      width,
+      height,
+      size: "fixed",
+      drawShadow: true,
+      flippingTime: 600,
+      usePortrait: true,
+      useMouseEvents: true,
+      mobileScrollSupport: false,
+      swipeDistance: 30,
+      showPageCorners: true,
+      showCover: false,
+    });
+
+    pf.loadFromImages(pageImages);
+    pf.on("flip", (e) => setCurrentPage(e.data));
+
+    return () => {
+      pf.destroy();
+    };
+  }, []);
 
   return (
     <main className="archive-page" aria-labelledby="archive-title">
-      <PageHeader backTo="/my-fairytales" backLabel="< 동화책 보관함" />
+      <Header left={<Link to="/my-fairytales" className="header__back">&lt; 동화책 보관함</Link>} />
 
       <section className="archive-page__heading">
         <h1 id="archive-title">흥부와 놀부</h1>
         <p>2026. 05. 23</p>
       </section>
 
-      <section className="archive-book" aria-label="동화책 사진 보기">
-        <button
-          type="button"
-          className="archive-book__turn-zone archive-book__turn-zone--left"
-          onClick={() => turnPage("prev")}
-          disabled={isFirstPage}
-          aria-label="이전 장 보기"
-        />
+      <section className="archive-book">
         <div
-          className={`archive-book__spread ${
-            turnDirection ? `archive-book__spread--turn-${turnDirection}` : ""
-          }`}>
-          <img
-            src={pages[currentPage].image}
-            alt={`흥부와 놀부 ${currentPage + 1}번째 장면`}
-            className="archive-book__image"
-          />
-          <span className="archive-book__page-shadow archive-book__page-shadow--left" />
-          <span className="archive-book__page-shadow archive-book__page-shadow--right" />
-          {turnDirection && (
-            <span className="archive-book__turning-page" aria-hidden="true" />
-          )}
-        </div>
-        <button
-          type="button"
-          className="archive-book__turn-zone archive-book__turn-zone--right"
-          onClick={() => turnPage("next")}
-          disabled={isLastPage}
-          aria-label="다음 장 보기"
+          ref={containerRef}
+          className="archive-book__container"
+          role="img"
+          aria-label="흥부와 놀부 동화 그림"
         />
       </section>
 
@@ -98,9 +85,9 @@ export function FairyTaleArchivePage() {
       </section>
 
       <div className="archive-page__indicator" aria-hidden="true">
-        {pages.map((page, index) => (
+        {pageImages.map((_, index) => (
           <span
-            key={page.id}
+            key={index}
             className={index === currentPage ? "is-active" : undefined}
           />
         ))}

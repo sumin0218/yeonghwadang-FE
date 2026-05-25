@@ -7,27 +7,6 @@
   padding: 0 18px;
 }
 
-.reservation-page__step {
-  flex-shrink: 0;
-  margin: -12px 0 14px;
-  color: #888780;
-  font-size: 12px;
-  text-align: center;
-}
-
-.reservation-page__header {
-  flex-shrink: 0;
-  margin-bottom: 20px;
-}
-
-.reservation-page__title {
-  margin: 0;
-  color: #1a1a1a;
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 1.4;
-}
 
 .reservation-carousel {
   display: flex;

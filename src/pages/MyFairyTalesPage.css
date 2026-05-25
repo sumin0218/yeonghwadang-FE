@@ -5,11 +5,11 @@
   color: #1a1a1a;
 }
 
-.my-fairytales-topbar {
+.my-fairytales-header {
   margin-bottom: 32px;
 }
 
-.my-fairytales-topbar__back {
+.my-fairytales-header__back {
   font-size: 24px;
   line-height: 1;
   transform: translateY(-1px);

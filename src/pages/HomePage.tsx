@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import { TopBar } from "@/components/TopBar";
+import { Header } from "@/components/Header";
 import "./HomePage.css";
 
 const books = [
@@ -52,24 +52,24 @@ export function HomePage() {
 
   return (
     <main className="home-page" aria-labelledby="home-title">
-      <TopBar
+      <Header
         left={
           <button
             type="button"
-            className="topbar-button"
+            className="header-button"
             aria-expanded={languageOpen}
             aria-haspopup="true"
             onClick={() => {
               setLanguageOpen((current) => !current);
               setMenuOpen(false);
             }}>
-            <span className="topbar-button__icon" aria-hidden="true">
+            <span className="header-button__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm3.31 4.16a7.978 7.978 0 0 1 2.45 5.84H16.4a13.038 13.038 0 0 0-1.09-3.7 8.006 8.006 0 0 1 0-2.14zM7.69 6.16a7.905 7.905 0 0 0-1.09 3.7H5.24a7.978 7.978 0 0 1 2.45-5.84 8.008 8.008 0 0 1 0 2.14zM4 12a8.002 8.002 0 0 1 8-8c.8 0 1.58.12 2.31.32a12.9 12.9 0 0 1 .84 3.57h-7.1A12.9 12.9 0 0 1 4 12zm2.54 1.7h2.78a13.036 13.036 0 0 0 1.09 3.7 8.006 8.006 0 0 1 0 2.14 7.905 7.905 0 0 0-3.87-5.84zM12 20a7.978 7.978 0 0 1-2.45-5.84h3.9A7.978 7.978 0 0 1 12 20zm2.45-7.84h-4.9a12.87 12.87 0 0 1-.84-3.57h6.58a12.87 12.87 0 0 1-.84 3.57zM16.4 14.14a7.978 7.978 0 0 1-2.45 5.84 8.01 8.01 0 0 1 0-2.14h2.45z" />
               </svg>
             </span>
             KR
-            <span className="topbar-button__caret">▾</span>
+            <span className="header-button__caret">▾</span>
           </button>
         }
         center={
@@ -82,14 +82,14 @@ export function HomePage() {
         right={
           <button
             type="button"
-            className="topbar-button"
+            className="header-button"
             aria-expanded={menuOpen}
             aria-haspopup="true"
             onClick={() => {
               setMenuOpen((current) => !current);
               setLanguageOpen(false);
             }}>
-            <span className="topbar-button__icon">☰</span>
+            <span className="header-button__icon">☰</span>
           </button>
         }
       />

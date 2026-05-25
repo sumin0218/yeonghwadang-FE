@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "./ScenePage.css";
 import { NotFoundPage } from "@/pages/NotFoundPage";
-import { PageHeader } from "@/components/PageHeader";
+import { Header } from "@/components/Header";
 
 const sceneData = {
   heungbu: {
@@ -135,7 +135,7 @@ export function ScenePage() {
       />
 
       <div className="scene-page__body">
-        <PageHeader backTo={`/books/${slug}`} backLabel={`< ${story.title}`} />
+        <Header left={<Link to={`/books/${slug}`} className="header__back">&lt; {story.title}</Link>} />
 
         <div className="scene-page__progress">
           <span className="scene-page__counter">

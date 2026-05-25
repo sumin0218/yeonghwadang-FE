@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import "./StoryDetailPage.css";
 import { NotFoundPage } from "@/pages/NotFoundPage";
-import { PageHeader } from "@/components/PageHeader";
+import { Header } from "@/components/Header";
 
 const storyData = {
   heungbu: {
@@ -38,7 +38,7 @@ export function StoryDetailPage() {
 
   return (
     <main className="detail-page">
-      <PageHeader backTo="/" backLabel="< 영화당" />
+      <Header left={<Link to="/" className="header__back">&lt; 영화당</Link>} />
 
       <img
         src={story.cover}

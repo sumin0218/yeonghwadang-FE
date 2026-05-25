@@ -7,31 +7,6 @@
   color: #1a1a1a;
 }
 
-.reservation-confirm-page__step {
-  margin: -12px 0 34px;
-  color: #2c2c2a;
-  font-size: 12px;
-  text-align: center;
-}
-
-.reservation-confirm-page__header {
-  padding-bottom: 20px;
-  border-bottom: 1px solid #d7d7d7;
-}
-
-.reservation-confirm-page__title {
-  margin: 0;
-  font-size: 25px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: 1.45;
-}
-
-.reservation-confirm-page__description {
-  margin: 14px 0 0;
-  color: #2c2c2a;
-  font-size: 12px;
-}
 
 .reservation-confirm-page__section {
   margin-top: 20px;
